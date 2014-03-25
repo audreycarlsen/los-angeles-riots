@@ -20,7 +20,7 @@ document.addEventListener( "DOMContentLoaded", function(){
 
   var dataLayer = L.geoJson(data, {
     onEachFeature: function(feature, layer) {
-      layer.bindPopup('<a href="' + feature.properties.id + '/">' + feature.properties.full_name + '</a>');
+      layer.bindPopup(feature.properties.full_name);
     }
   });
 
