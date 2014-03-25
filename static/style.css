@@ -1,0 +1,25 @@
+body { 
+  padding: 60px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14.5px;
+}
+
+h1 {
+  font-family: 'Bevan', sans-serif;
+}
+
+h5 {
+  font-family: 'News Cycle', sans-serif;
+  font-size: 15px;
+}
+
+#text_description {
+  font-family: 'Ledger', sans-serif;
+  font-size: 14px;
+}
+
+small {
+  font-family: 'News Cycle', sans-serif;
+}

@@ -1,9 +1,17 @@
+import csv
 from flask import Flask
+from flask import render_template
+from datetime import datetime
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return 'Hello World!'
+  parsed_csv = csv.DictReader(open('./static/la-riots-deaths.csv'))
+  csv_list = list(parsed_csv)
+  for person in csv_list:
+    person['date'] = datetime.strptime(person['date'], '%Y-%m-%d')
+  return render_template('index.html', victims_list = csv_list)
 
 if __name__ == '__main__':
   app.run(

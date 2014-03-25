@@ -1,0 +1,67 @@
+
+
+
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="row">
+  <div class="col-md-8">
+    <div id="map" style="width:100%; height:400px;"></div>
+  </div>
+  <div class="col-md-4">
+    <div id="text_description">
+      <p>On March 3, 1991, four Los Angeles Police Department officers were videotaped beating a black man named Rodney King following a high-speed car chase. Although this event was widely considered an act of police brutality, the four officers were acquitted of assault and use of excessive force on April 29, 1992. This verdict triggered six days of rioting, looting, assault, and arson throughout Los Angeles County, resulting in intervention by the U.S. Army, Marines, and National Guard. By the end of it, 58 people had been killed and thousands injured, making the 1992 Los Angeles riots the deadliest in the U.S. in over a century.</p>
+
+      <p><em><small>Source: <a href="http://spreadsheets.latimes.com/la-riots-deaths/" target="_blank">Los Angeles Times Data Desk</a></small></em></p>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Race</th>
+      <th>Date</th>
+      <th>Neighborhood</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for person in victims_list %}
+      <tr>
+        <td>{{ person.full_name }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.race }}</td>
+        <td>{{ person.date.strftime('%B %e, %Y') }}</td>
+        <td>{{ person.neighborhood}}</td>
+        <td>{{ person.address }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  var victims_array = [{% for person in victims_list %}
+    {
+      "type": "Feature",
+      "properties": {
+        "full_name": "{{ person.full_name }}",
+        "id": "{{ person.id }}"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [{{ person.x }}, {{ person.y }}]
+      }
+    } {% if not loop.last %},{% endif %}
+  {% endfor %}]
+</script>
+
+
+<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
+<script type="text/javascript" src="static/map.js"></script>
+
+{% endblock %}
