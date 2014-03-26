@@ -3,7 +3,7 @@ document.addEventListener( "DOMContentLoaded", function(){
 
   var map = L.map('map', {
     scrollWheelZoom: false
-  }).setView([34.055, -118.35], 9);
+  }).setView([34.055, -118.15], 9);
 
   var mapquestLayer = new L.TileLayer('http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
     maxZoom: 18,
