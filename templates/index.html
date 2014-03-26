@@ -7,7 +7,7 @@
   </div>
   <div class="col-md-4">
     <div id="text_description">
-      <p>On March 3, 1991, four Los Angeles Police Department officers were videotaped beating a black man named Rodney King following a high-speed car chase. Although this event was widely considered an act of police brutality, the four officers were acquitted of assault and use of excessive force. This verdict, announced on April 29, 1992, triggered six days of rioting, looting, assault, and arson throughout Los Angeles County, and required intervention by the U.S. Army, Marines, and National Guard. By the end of it, 58 people had been killed and thousands injured, making the 1992 Los Angeles riots the deadliest in the U.S. in over a century.</p>
+      <p>On March 3, 1991, four Los Angeles Police Department officers were videotaped beating a black man named Rodney King following a high-speed car chase. Although this event was widely considered an act of police brutality, the four officers were acquitted of assault and use of excessive force. This verdict, announced on April 29, 1992, triggered six days of rioting, looting, assault, and arson throughout Los Angeles County and required intervention by the U.S. Army, Marines, and National Guard. By the end of it, 58 people had been killed and thousands injured, making the 1992 Los Angeles riots the deadliest in the U.S. in over a century.</p>
 
       <p><em><small>Data Source: <a href="http://spreadsheets.latimes.com/la-riots-deaths/" target="_blank">Los Angeles Times Data Desk</a></small></em></p>
     </div>
@@ -32,7 +32,7 @@
     {% for person in victims_list %}
       <div>
         <tr class="victim_row" id="{{ person.id }}">
-          <td><span class="glyphicon glyphicon-chevron-down"></span></td>
+          <td><span class="glyphicon glyphicon-chevron-down gray"></span><span class="glyphicon glyphicon-chevron-up gray"></span></td>
           </td><td>{{ person.full_name }}</td>
           <td>{{ person.age }}</td>
           <td>{{ person.race }}</td>
@@ -70,10 +70,10 @@
   $(document).ready(function() {
     $('.victim_row').on('click', function(event) {
       $(this).siblings("#desc_" + this.id).toggle();
+      $(this).find("span").toggle();
     });
   });
 </script>
-
 
 <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
 <script type="text/javascript" src="static/map.js"></script>
