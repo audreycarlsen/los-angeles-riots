@@ -29,15 +29,23 @@
   </thead>
   <tbody>
     {% for person in victims_list %}
-      <tr>
-        <td>{{ person.full_name }}</td>
-        <td>{{ person.age }}</td>
-        <td>{{ person.race }}</td>
-        <td>{{ person.date.strftime('%B %e, %Y') }}</td>
-        <td>{{ person.neighborhood}}</td>
-        <td>{{ person.address }}</td>
-      </tr>
-      <tr><td colspan="6" id="victim_description">{{ person.story }}</td></tr>
+      <div>
+        <tr class="victim_row" id="{{ person.id }}">
+          <td>{{ person.full_name }}</td>
+          <td>{{ person.age }}</td>
+          <td>{{ person.race }}</td>
+          <td>{{ person.date.strftime('%B %e, %Y') }}</td>
+          <td>{{ person.neighborhood}}</td>
+          <td>{{ person.address }}</td>
+        </tr>
+        <tr class="victim_desc_row" id="desc_{{ person.id }}">
+          <td colspan="6">
+            <div class="victim_desc_cell">
+              {{ person.story }}
+            </div>
+          </td>
+        </tr>
+      </div>
     {% endfor %}
   </tbody>
 </table>
@@ -56,6 +64,13 @@
       }
     } {% if not loop.last %},{% endif %}
   {% endfor %}]
+
+  $(document).ready(function() {
+    $('.victim_row').on('click', function(event) {
+      $('.victim_desc_row').hide();
+      $(this).siblings("#desc_" + this.id).show();
+    });
+  });
 </script>
 
 
