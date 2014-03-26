@@ -2,6 +2,7 @@ import csv
 from flask import Flask
 from flask import render_template
 from datetime import datetime
+from js.jquery import jquery
 
 app = Flask(__name__)
 

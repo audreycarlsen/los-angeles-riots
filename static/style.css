@@ -29,3 +29,8 @@ small {
     padding-top: 20px;
   }
 }
+
+#victim_description {
+  padding: 20px 15px; 
+  font-size: 13px;
+}

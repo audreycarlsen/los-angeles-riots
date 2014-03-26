@@ -7,9 +7,9 @@
   </div>
   <div class="col-md-4">
     <div id="text_description">
-      <p>On March 3, 1991, four Los Angeles Police Department officers were videotaped beating a black man named Rodney King following a high-speed car chase. Although this event was widely considered an act of police brutality, the four officers were acquitted of assault and use of excessive force. This verdict, announced on April 29, 1992, triggered six days of rioting, looting, assault, and arson throughout Los Angeles County, requiring intervention by the U.S. Army, Marines, and National Guard. By the end of it, 58 people had been killed and thousands injured, making the 1992 Los Angeles riots the deadliest in the U.S. in over a century.</p>
+      <p>On March 3, 1991, four Los Angeles Police Department officers were videotaped beating a black man named Rodney King following a high-speed car chase. Although this event was widely considered an act of police brutality, the four officers were acquitted of assault and use of excessive force. This verdict, announced on April 29, 1992, triggered six days of rioting, looting, assault, and arson throughout Los Angeles County, and required intervention by the U.S. Army, Marines, and National Guard. By the end of it, 58 people had been killed and thousands injured, making the 1992 Los Angeles riots the deadliest in the U.S. in over a century.</p>
 
-      <p><em><small>Source: <a href="http://spreadsheets.latimes.com/la-riots-deaths/" target="_blank">Los Angeles Times Data Desk</a></small></em></p>
+      <p><em><small>Data Source: <a href="http://spreadsheets.latimes.com/la-riots-deaths/" target="_blank">Los Angeles Times Data Desk</a></small></em></p>
     </div>
   </div>
 </div>
@@ -25,7 +25,6 @@
       <th>Date</th>
       <th>Neighborhood</th>
       <th>Address</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -37,8 +36,8 @@
         <td>{{ person.date.strftime('%B %e, %Y') }}</td>
         <td>{{ person.neighborhood}}</td>
         <td>{{ person.address }}</td>
-        <td><button type="button" class="btn btn-default btn-xs">Details</button></td>
       </tr>
+      <tr><td colspan="6" id="victim_description">{{ person.story }}</td></tr>
     {% endfor %}
   </tbody>
 </table>
