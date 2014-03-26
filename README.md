@@ -1,0 +1,1 @@
+Decided to build my first news app and first Python app simultaneously. Many thanks to Ben Welsh's fantastic First News app tutorial for clean data and guidance: http://first-news-app.readthedocs.org/en/latest/
