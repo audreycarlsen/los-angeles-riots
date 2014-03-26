@@ -19,6 +19,7 @@
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Age</th>
       <th>Race</th>
@@ -31,7 +32,8 @@
     {% for person in victims_list %}
       <div>
         <tr class="victim_row" id="{{ person.id }}">
-          <td>{{ person.full_name }}</td>
+          <td><span class="glyphicon glyphicon-chevron-down"></span></td>
+          </td><td>{{ person.full_name }}</td>
           <td>{{ person.age }}</td>
           <td>{{ person.race }}</td>
           <td>{{ person.date.strftime('%B %e, %Y') }}</td>
@@ -39,7 +41,7 @@
           <td>{{ person.address }}</td>
         </tr>
         <tr class="victim_desc_row" id="desc_{{ person.id }}">
-          <td colspan="6">
+          <td colspan="7">
             <div class="victim_desc_cell">
               {{ person.story }}
             </div>
@@ -67,8 +69,7 @@
 
   $(document).ready(function() {
     $('.victim_row').on('click', function(event) {
-      $('.victim_desc_row').hide();
-      $(this).siblings("#desc_" + this.id).show();
+      $(this).siblings("#desc_" + this.id).toggle();
     });
   });
 </script>
