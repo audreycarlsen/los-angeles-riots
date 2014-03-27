@@ -58,7 +58,7 @@
   {% endfor %}]
 
   $(document).ready(function() {
-    $('.victim_row').on('click', function(event) {
+    $('#victims_list').on('click', '.victim_row', function(event) {
       $(this).siblings("#desc_" + this.id).toggle();
       $(this).find("span").toggle();
     });
