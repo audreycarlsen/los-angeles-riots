@@ -6,13 +6,14 @@
       </td>
       <td>{{ person.full_name }}</td>
       <td>{{ person.age }}</td>
+      <td>{{ person.gender }}</td>
       <td>{{ person.race }}</td>
       <td>{{ person.date.strftime('%B %e, %Y') }}</td>
       <td>{{ person.neighborhood}}</td>
       <td>{{ person.address }}</td>
     </tr>
     <tr class="victim_desc_row" id="desc_{{ person.id }}">
-      <td colspan="7">
+      <td colspan="8">
         <div class="victim_desc_cell">
           {{ person.story }}
         </div>
