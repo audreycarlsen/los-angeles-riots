@@ -1,4 +1,4 @@
-document.addEventListener( "DOMContentLoaded", function(){
+document.addEventListener( "DOMContentLoaded", function() {
   document.removeEventListener( "DOMContentLoaded", arguments.callee, false );
 
   var map = L.map('map', {

@@ -2,6 +2,7 @@ import csv
 from flask import Flask
 from flask import render_template
 from datetime import datetime
+from operator import itemgetter
 
 app = Flask(__name__)
 
@@ -12,6 +13,15 @@ def index():
   for person in csv_list:
     person['date'] = datetime.strptime(person['date'], '%Y-%m-%d')
   return render_template('index.html', victims_list = csv_list)
+
+@app.route('/index_age')
+def index_age():
+  parsed_csv = csv.DictReader(open('./static/la-riots-deaths.csv'))
+  csv_list = list(parsed_csv)
+  for person in csv_list:
+    person['date'] = datetime.strptime(person['date'], '%Y-%m-%d')
+  sorted_list = sorted(csv_list, key=itemgetter('age'), reverse=True)
+  return render_template('index.html', victims_list = sorted_list)
 
 if __name__ == '__main__':
   app.run(

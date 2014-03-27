@@ -15,13 +15,14 @@
 </div>
 
 <br>
+<p>Sort by:&nbsp; Name &nbsp;|&nbsp; Age &nbsp;|&nbsp; Race &nbsp;|&nbsp; Date &nbsp;|&nbsp; Neighborhood</p>
 
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
       <th></th>
       <th>Name</th>
-      <th>Age</th>
+      <th><a href="/index_age">Age</a></th>
       <th>Race</th>
       <th>Date</th>
       <th>Neighborhood</th>
@@ -32,8 +33,10 @@
     {% for person in victims_list %}
       <div>
         <tr class="victim_row" id="{{ person.id }}">
-          <td><span class="glyphicon glyphicon-chevron-down gray"></span><span class="glyphicon glyphicon-chevron-up gray"></span></td>
-          </td><td>{{ person.full_name }}</td>
+          <td>
+            <span class="glyphicon glyphicon-chevron-down gray"></span><span class="glyphicon glyphicon-chevron-up gray"></span>
+          </td>
+          <td>{{ person.full_name }}</td>
           <td>{{ person.age }}</td>
           <td>{{ person.race }}</td>
           <td>{{ person.date.strftime('%B %e, %Y') }}</td>
@@ -55,6 +58,7 @@
 <!-- DIALOG POP-UP FOR EACH PERSON ON MAP -->
 {% for person in victims_list %}
   <div class="dialog" id="dialog_{{ person.id }}">
+      <div id="detail_map" style="width:100%; height:100%;"></div>
       <p>{{ person.story }}</p>
       <p><div style="text-align:right; font-size:12px"><a href="#" class="dialog-close">Close [X]</a></div></p>
   </div>
