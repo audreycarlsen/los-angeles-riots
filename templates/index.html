@@ -52,6 +52,14 @@
   </tbody>
 </table>
 
+<!-- DIALOG POP-UP FOR EACH PERSON ON MAP -->
+{% for person in victims_list %}
+  <div class="dialog" id="dialog_{{ person.id }}">
+      <p>{{ person.story }}</p>
+      <p><div style="text-align:right; font-size:12px"><a href="#" class="dialog-close">Close [X]</a></div></p>
+  </div>
+{% endfor %}
+
 <script type="text/javascript">
   var victims_array = [{% for person in victims_list %}
     {

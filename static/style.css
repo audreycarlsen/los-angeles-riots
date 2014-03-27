@@ -64,6 +64,17 @@ small {
   padding:20px;
 }
 
+#close {
+  position:absolute;
+  background:url(close.png) 0 0 no-repeat;
+  width:24px;
+  height:27px;
+  display:block;
+  text-indent:-9999px;
+  top:-7px;
+  right:-7px;
+}
+
 .gray {
   color: #b0b0b0;
 }
