@@ -21,37 +21,16 @@
   <thead>
     <tr>
       <th></th>
-      <th>Name</th>
-      <th><a href="/index_age">Age</a></th>
-      <th>Race</th>
-      <th>Date</th>
-      <th>Neighborhood</th>
-      <th>Address</th>
+      <th><a href="#" class="table_header" id="last_name">Name</a></th>
+      <th><a href="#" class="table_header" id="age">Age</a></th>
+      <th><a href="#" class="table_header" id="race">Race</a></th>
+      <th><a href="#" class="table_header" id="date">Date</a></th>
+      <th><a href="#" class="table_header" id="neighborhood">Neighborhood</a></th>
+      <th><a href="#" class="table_header" id="address">Address</a></th>
     </tr>
   </thead>
-  <tbody>
-    {% for person in victims_list %}
-      <div>
-        <tr class="victim_row" id="{{ person.id }}">
-          <td>
-            <span class="glyphicon glyphicon-chevron-down gray"></span><span class="glyphicon glyphicon-chevron-up gray"></span>
-          </td>
-          <td>{{ person.full_name }}</td>
-          <td>{{ person.age }}</td>
-          <td>{{ person.race }}</td>
-          <td>{{ person.date.strftime('%B %e, %Y') }}</td>
-          <td>{{ person.neighborhood}}</td>
-          <td>{{ person.address }}</td>
-        </tr>
-        <tr class="victim_desc_row" id="desc_{{ person.id }}">
-          <td colspan="7">
-            <div class="victim_desc_cell">
-              {{ person.story }}
-            </div>
-          </td>
-        </tr>
-      </div>
-    {% endfor %}
+  <tbody id="victims_list">
+    {% include 'table.html' %}
   </tbody>
 </table>
 

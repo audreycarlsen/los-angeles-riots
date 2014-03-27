@@ -1,0 +1,22 @@
+{% for person in victims_list %}
+  <div>
+    <tr class="victim_row" id="{{ person.id }}">
+      <td>
+        <span class="glyphicon glyphicon-chevron-down gray"></span><span class="glyphicon glyphicon-chevron-up gray"></span>
+      </td>
+      <td>{{ person.full_name }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.race }}</td>
+      <td>{{ person.date.strftime('%B %e, %Y') }}</td>
+      <td>{{ person.neighborhood}}</td>
+      <td>{{ person.address }}</td>
+    </tr>
+    <tr class="victim_desc_row" id="desc_{{ person.id }}">
+      <td colspan="7">
+        <div class="victim_desc_cell">
+          {{ person.story }}
+        </div>
+      </td>
+    </tr>
+  </div>
+{% endfor %}
