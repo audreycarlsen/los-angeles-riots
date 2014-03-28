@@ -85,8 +85,12 @@ small {
 
 .victim_row td .glyphicon:hover,
 .icon-arrow-down:hover {
-  cursor: pointer;
   color: #b0b0b0;
+}
+
+.table_header:hover,
+.victim_row:hover {
+  cursor: pointer;
 }
 
 /*IcoMoon Icons*/
